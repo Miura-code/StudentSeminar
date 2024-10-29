@@ -13,7 +13,8 @@ def main():
     writer = SummaryWriter(log_dir=os.path.join(config.path, "tb"))
     writer.add_text('config', config.as_markdown(), 0)
     
-    data = np.linspace(0, 100, 300)
+    x = np.linspace(0, 2*np.pi, 300)
+    data = np.sin(x)
     for epoch, d in enumerate(data):
         writer.add_scalar('train/data', d, epoch)
     writer.close()
